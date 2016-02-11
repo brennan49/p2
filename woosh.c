@@ -5,15 +5,30 @@
 #include <string.h>
 
 char error_message[30] = "An error has occurred\n";
-#define MAX_LENGTH 128;
+
+char ** tokenize (char * line) {
+    char ** theCmd = malloc(128 * sizeof(char*));
+    char * token = strtok (line, " \n");
+    int i = 0;
+    while (token != NULL) {
+        theCmd[i] = malloc (strlen(token) + 1);
+        strcpy (theCmd[i], token);
+	i++;
+        token = strtok(NULL, " \n");
+    }
+    theCmd[i] = NULL;
+    return (theCmd);
+}
 
 int main (int argc, char * argv[]) {
-
-    char * cmd;
-    char * line = malloc (128);
-    pid_t pid, wpid;
-    char * args;
-
+    char * line = malloc(128);
+    pid_t wpid;
+    int pid;
+    char * args = malloc(128);
+    int i = 0;
+    char * path [128];
+    char ** theCmd;
+    char * cwd = malloc(512);  
     if (argc > 1) {
         write (STDERR_FILENO, error_message, strlen(error_message));
     }
@@ -22,56 +37,69 @@ int main (int argc, char * argv[]) {
         printf ("whoosh> ");
         if (fgets(line, 128, stdin) == NULL) {
             write (STDERR_FILENO, error_message, strlen(error_message));
-        }
-        
-        printf("%s", line);
-        
-    
-        if (cmd = strtok (line, " ")) {
-            printf("%s", cmd);
-            printf("hello\n");
-            if (strcmp (cmd, "ls\n") == 0) {
-                pid = fork();
-                if (pid == 0) {
-                    if (execv("/bin/ls", line) == -1);
-                        write (STDERR_FILENO, error_message, strlen(error_message)); 
-                }      
+        }  
+        for(i = 0; i < 128; i++) {
+            if(strstr(line, "\n") == NULL) {
+                printf("line length");
+                write (STDERR_FILENO, error_message, strlen(error_message));
             }
+        }
 
+        theCmd = tokenize(line);
+        if (strcmp (theCmd[0], "ls") == 0) {
+            pid = fork();
+            if (pid == 0) {
+                if (execv("/bin/ls", theCmd) == -1) {
+                    write (STDERR_FILENO, error_message, strlen(error_message)); 
+                }
+            }
             else if (pid < 0) {
                 write (STDERR_FILENO, error_message, strlen(error_message));
             }
+            else {
+                wpid =  wait(&pid);
+                if (wpid < 0) {
+                    write (STDERR_FILENO, error_message, strlen(error_message));
+                }   
+            }  
+    
+        }
+
+        if (strcmp (theCmd[0], "cd") == 0) {
+            if (theCmd[1] == NULL) { 
+                chdir(getenv("HOME"));
+            } 
 
             else {
-                waitpid(pid);    
-            }
-            
-            printf("%s", line);
-            if (strcmp (cmd, "cd\n") == 0) {
-                args = strtok (NULL, " ");
-                printf("butts"); 
-                if (args == NULL) { 
-                    printf("args is null");
-                    getenv("HOME");
-                } 
-                else {
-                    chdir(args);
-                }      
-            }
-            
-            if (strcmp (cmd, "pwd\n") == 0) {
-                
-            }
+                printf("%s\n", theCmd[1]);
+                if((chdir(theCmd[1])) == -1){
+                    write (STDERR_FILENO, error_message, strlen(error_message));
+                }
+            }      
+        }
 
-            if (strcmp (cmd, "path\n") == 0) {
-                
+        if (strcmp (theCmd[0], "pwd") == 0) {
+            getcwd (cwd, 128); 
+            if (cwd == NULL) {
+                write (STDERR_FILENO, error_message, strlen(error_message));
             }
+            else {
+                printf("%s\n", cwd);
+            }
+        }
+
+        if (strcmp (theCmd[0], "path") == 0) {
+            i = 1;
+            while (theCmd[i] != NULL) {
+                path[i - 1] = malloc(strlen(theCmd[i]) + 1);
+                strcpy(path[i - 1], theCmd[i]);
+                i++;
+            }      
+        }
  
-            if (strcmp (cmd, "exit\n") == 0) {
-                exit(0);    
-            }
-            
-        }  
+        if (strcmp (theCmd[0], "exit") == 0) {
+            break;    
+        } 
     }
-
+    exit(0);
 }
