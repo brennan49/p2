@@ -23,7 +23,6 @@ char ** tokenize (char * line) {
 struct stat fileStat;
 
 void redirect (char ** path, char ** theCmd) {
-    printf("redirect entered\n");
     char output[128];
     char error[128];
     char thePath[128];
@@ -38,10 +37,10 @@ void redirect (char ** path, char ** theCmd) {
         i++;
     }
     i = 0;
-        strcpy(output, theCmd[index]);
-        strcat(output, ".out");
-        strcpy(error, theCmd[index]);
-        strcat(error, ".err");
+    strcpy(output, theCmd[index]);
+    strcat(output, ".out");
+    strcpy(error, theCmd[index]);
+    strcat(error, ".err");
     while(path[i] != NULL) {
         strcpy(thePath, path[i]);
         strcat(thePath, "/");
@@ -57,10 +56,10 @@ void redirect (char ** path, char ** theCmd) {
     pid = fork();
     if (pid == 0){ 
         close(STDOUT_FILENO);
-        close(STDERR_FILENO);
         if ((open(output, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IROTH)) < 0) {
             write (STDERR_FILENO, error_message, strlen(error_message));
         }
+        close(STDERR_FILENO);
         if ((open(error, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IROTH)) < 0) {
             write (STDERR_FILENO, error_message, strlen(error_message));
         }            
@@ -170,7 +169,6 @@ int main (int argc, char * argv[]) {
         }  
         for(i = 0; i < 128; i++) {
             if(strstr(line, "\n") == NULL) {
-                printf("line length");
                 write (STDERR_FILENO, error_message, strlen(error_message));
             }
         }

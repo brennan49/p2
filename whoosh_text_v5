@@ -13,7 +13,7 @@ char ** tokenize (char * line) {
     while (token != NULL) {
         theCmd[i] = malloc (strlen(token) + 1);
         strcpy (theCmd[i], token);
-	i++;
+        i++;
         token = strtok(NULL, " \n");
     }
     theCmd[i] = NULL;
@@ -23,7 +23,6 @@ char ** tokenize (char * line) {
 struct stat fileStat;
 
 void redirect (char ** path, char ** theCmd) {
-    printf("redirect entered\n");
     char output[128];
     char error[128];
     char thePath[128];
@@ -38,10 +37,10 @@ void redirect (char ** path, char ** theCmd) {
         i++;
     }
     i = 0;
-        strcpy(output, theCmd[index]);
-        strcat(output, ".out");
-        strcpy(error, theCmd[index]);
-        strcat(error, ".err");
+    strcpy(output, theCmd[index]);
+    strcat(output, ".out");
+    strcpy(error, theCmd[index]);
+    strcat(error, ".err");
     while(path[i] != NULL) {
         strcpy(thePath, path[i]);
         strcat(thePath, "/");
@@ -55,7 +54,7 @@ void redirect (char ** path, char ** theCmd) {
         i++;
     }
     pid = fork();
-    if (pid == 0){ 
+    if (pid == 0){
         close(STDOUT_FILENO);
         close(STDERR_FILENO);
         if ((open(output, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IROTH)) < 0) {
@@ -63,7 +62,7 @@ void redirect (char ** path, char ** theCmd) {
         }
         if ((open(error, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IROTH)) < 0) {
             write (STDERR_FILENO, error_message, strlen(error_message));
-        }            
+        }
         if((execv(thePath, theCmd)) == -1) {
             write (STDERR_FILENO, error_message, strlen(error_message));
         }
@@ -112,15 +111,15 @@ int checkRedirect (char ** theCmd) {
 int execute (char ** path, char ** theCmd) {
     int pid;
     int i = 0;
-    int pathFound = 0; 
-    int success = 1; 
+    int pathFound = 0;
+    int success = 1;
     char thePath[128];
     int redir = 0;
     redir = checkRedirect(theCmd);
     if(redir == 1) {
         redirect(path, theCmd);
-        return (redir);   
-    } 
+        return (redir);
+    }
     pid = fork();
     if(pid == 0 && redir == 0) {
         while(path[i] != NULL) {
@@ -144,7 +143,7 @@ int execute (char ** path, char ** theCmd) {
             write(STDERR_FILENO, error_message, strlen(error_message));
         }
     }
-    return (success); 
+    return (success);
 }
 
 
@@ -156,7 +155,7 @@ int main (int argc, char * argv[]) {
     int i = 0;
     char ** path = malloc(128);
     char ** theCmd;
-    char * cwd = malloc(512);  
+    char * cwd = malloc(512);
     int pathFound = 0;
     path[0] = "/bin";
     if (argc > 1) {
@@ -167,29 +166,28 @@ int main (int argc, char * argv[]) {
         printf ("whoosh> ");
         if (fgets(line, 128, stdin) == NULL) {
             write (STDERR_FILENO, error_message, strlen(error_message));
-        }  
+        }
         for(i = 0; i < 128; i++) {
             if(strstr(line, "\n") == NULL) {
-                printf("line length");
                 write (STDERR_FILENO, error_message, strlen(error_message));
             }
         }
 
         theCmd = tokenize(line);
         if (strcmp (theCmd[0], "cd") == 0) {
-            if (theCmd[1] == NULL) { 
+            if (theCmd[1] == NULL) {
                 chdir(getenv("HOME"));
-            } 
+            }
 
             else {
                 if((chdir(theCmd[1])) == -1){
                     write (STDERR_FILENO, error_message, strlen(error_message));
                 }
-            }      
+            }
         }
 
         else if (strcmp (theCmd[0], "pwd") == 0) {
-            getcwd (cwd, 128); 
+            getcwd (cwd, 128);
             if (cwd == NULL) {
                 write (STDERR_FILENO, error_message, strlen(error_message));
             }
@@ -205,18 +203,19 @@ int main (int argc, char * argv[]) {
                 strcpy(path[i - 1], theCmd[i]);
                 i++;
                 printf("path = %s\n", path[i-2]);
-            }      
+            }
         }
- 
+
         else if (strcmp (theCmd[0], "exit") == 0) {
-            break;    
-        } 
-        
+            break;
+        }
+
         else {
             if((execute(path, theCmd)) == 0) {
                 write (STDERR_FILENO, error_message, strlen(error_message));
-            } 
+            }
         }
     }
     exit(0);
 }
+

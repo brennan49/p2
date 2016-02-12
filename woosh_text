@@ -1,0 +1,102 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <string.h>
+
+char error_message[30] = "An error has occurred\n";
+
+void  tokenize (char * line, char * theCmd[]) {
+    char * token = strtok (line, " ");
+    int i = 0;
+    while (token != NULL) {
+        theCmd[i] = malloc (strlen(line) + 1);
+        strcpy (theCmd[i], token);
+        i++;
+        token = strtok(NULL, " ");
+        token = NULL;
+    }
+    theCmd[i] = NULL;
+}
+
+int main (int argc, char * argv[]) {
+    char * line = malloc (128);
+    pid_t wpid;
+    int pid;
+    char * args;
+    int i = 0;
+    char * path = "/bin";
+    char * theCmd[128];
+    char * tempLine = malloc(128);
+    if (argc > 1) {
+        write (STDERR_FILENO, error_message, strlen(error_message));
+    }
+
+    while (1) {
+        printf ("whoosh> ");
+        if (fgets(line, 128, stdin) == NULL) {
+            write (STDERR_FILENO, error_message, strlen(error_message));
+        }
+        strcpy(tempLine, line);   
+        for(i = 0; i < 128; i++) {
+            if(strstr(line, "\n") == NULL) {
+                printf("line length");
+                write (STDERR_FILENO, error_message, strlen(error_message));
+            }
+        }
+        tokenize(line, theCmd);
+       // if (cmd = strtok (tempLine, " ")) {
+        if (strcmp (theCmd[0], "ls\n") == 0) {
+            pid = fork();
+            if (pid == 0) {
+                if (execv("/bin/ls", theCmd) == -1) {
+                    write (STDERR_FILENO, error_message, strlen(error_message)); 
+                }
+            }
+            else if (pid < 0) {
+                write (STDERR_FILENO, error_message, strlen(error_message));
+            }
+            else {
+                wpid =  wait(&pid);
+                if (wpid < 0) {
+                    printf("wpid error");
+                    write (STDERR_FILENO, error_message, strlen(error_message));
+                }
+            }
+
+        }
+
+
+        if (strcmp (theCmd[0], "cd\n") == 0) {
+            if (args == NULL) {
+                getenv("HOME");
+            }
+            else {
+                chdir(args);
+            }
+        }
+
+        if (strcmp (theCmd[0], "pwd\n") == 0) {
+            char * cwd = malloc(128);
+            getcwd (cwd, 128);
+            if (cwd == NULL) {
+                write (STDERR_FILENO, error_message, strlen(error_message));
+            }
+            else {
+                printf("%s\n", cwd);
+            }
+        }
+
+        if (strcmp (theCmd[0], "path\n") == 0) {
+
+        }
+
+        if (strcmp (theCmd[0], "exit\n") == 0) {
+            break;
+        }
+    }
+    exit(0);
+}
+                                                                                              99,1          Bot
+                                                                                              1,19          Top
+
