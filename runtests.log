@@ -24,7 +24,7 @@ Test exit
 run exit
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
+/tmp/tmprZ58Cl/p/./whoosh
 
 
 test exit PASSED (5 of 5)
@@ -38,7 +38,7 @@ Test pwd
 run pwd
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
+/tmp/tmprZ58Cl/p/./whoosh
 
 
 test pwd PASSED (5 of 5)
@@ -52,21 +52,11 @@ Test cd
 cd with argument
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> whoosh> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwhoosh> whoosh> Desktop\nDocuments\nDownloads\nMusic\nPictures\nprivate\npublic\nPublic\nTemplates\nVideos\nwhoosh> "
-Got:      "_\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nDesktop\nDocuments\nDownloads\nMusic\nPictures\nprivate\npublic\nPublic\nTemplates\nVideos\nwhoosh> whoosh> whoosh> whoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test cd FAILED (0 of 5)
+test cd PASSED (5 of 5)
  (cd with argument)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/cd/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/cd
- to compare your output with reference outputs. 
 
 starting badcd
 
@@ -76,7 +66,7 @@ Test badcd
 cd to a bad directory
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
+/tmp/tmprZ58Cl/p/./whoosh
 
 
 test badcd PASSED (5 of 5)
@@ -90,21 +80,11 @@ Test exec
 path should be /bin
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> Linux\nwhoosh> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwhoosh> hello world!\nwhoosh> "
-Got:      "Linux\n_\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nhello world!\nwhoosh> whoosh> whoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test exec FAILED (0 of 5)
+test exec PASSED (5 of 5)
  (path should be /bin)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/exec/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/exec
- to compare your output with reference outputs. 
 
 starting badexec
 
@@ -114,21 +94,11 @@ Test badexec
 run programs that do not exist in /bin
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> whoosh> whoosh> whoosh> whoosh> "
-Got:      "whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test badexec FAILED (0 of 10)
+test badexec PASSED (10 of 10)
  (run programs that do not exist in /bin)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/badexec/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/badexec
- to compare your output with reference outputs. 
 
 starting path
 
@@ -138,21 +108,11 @@ Test path
 run path and a program that exists in a given path
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> whoosh> Too many arguments\nwhoosh> "
-Got:      "Too many arguments\nwhoosh> path = /u/c/s/cs537-1/ta/tests/2a/path\nwhoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test path FAILED (0 of 5)
+test path PASSED (5 of 5)
  (run path and a program that exists in a given path)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/path/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/path
- to compare your output with reference outputs. 
 
 starting path2
 
@@ -162,21 +122,11 @@ Test path2
 run path with a long pathname and many different paths
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> whoosh> whoosh> "
-Got:      "whoosh> path = /../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../.\nwhoosh> whoosh> path = /u/a\npath = /u/b\npath = /u/c\npath = /u/d\npath = /u/e\npath = /u/f\npath = /u/g\npath = /u/h\npath = /u/i\npath = /u/j\npath = /u/k\npath = /u/l\npath = /u/m\npath = /u/n\npath = /u/o\npath = /u/p\npath = /u/q\npath = /u/r\npath = /u/s\npath = /u/t\npath = /u/u\npath = /u/v\npath = /u/w\npath = /u/x\npath = /u\nwhoosh> whoosh> whoosh> path = /../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../.\nwhoosh> whoosh> path = /u/a\npath = /u/b\npath = /u/c\npath = /u/d\npath = /u/e\npath = /u/f\npath = /u/g\npath = /u/h\npath = /u/i\npath = /u/j\npath = /u/k\npath = /u/l\npath = /u/m\npath = /u/n\npath = /u/o\npath = /u/p\npath = /u/q\npath = /u/r\npath = /u/s\npath = /u/t\npath = /u/u\npath = /u/v\npath = /u/w\npath = /u/x\npath = /u\nwhoosh> whoosh> whoosh> path = /../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../.\nwhoosh> whoosh> path = /u/a\npath = /u/b\npath = /u/c\npath = /u/d\npath = /u/e\npath = /u/f\npath = /u/g\npath = /u/h\npath = /u/i\npath = /u/j\npath = /u/k\npath = /u/l\npath = /u/m\npath = /u/n\npath = /u/o\npath = /u/p\npath = /u/q\npath = /u/r\npath = /u/s\npath = /u/t\npath = /u/u\npath = /u/v\npath = /u/w\npath = /u/x\npath = /u\nwhoosh> whoosh> whoosh> path = /../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../.\nwhoosh> whoosh> path = /u/a\npath = /u/b\npath = /u/c\npath = /u/d\npath = /u/e\npath = /u/f\npath = /u/g\npath = /u/h\npath = /u/i\npath = /u/j\npath = /u/k\npath = /u/l\npath = /u/m\npath = /u/n\npath = /u/o\npath = /u/p\npath = /u/q\npath = /u/r\npath = /u/s\npath = /u/t\npath = /u/u\npath = /u/v\npath = /u/w\npath = /u/x\npath = /u\nwhoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test path2 FAILED (0 of 5)
+test path2 PASSED (5 of 5)
  (run path with a long pathname and many different paths)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/path2/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/path2
- to compare your output with reference outputs. 
 
 starting stress
 
@@ -187,21 +137,11 @@ stress testing the shell with large number of commands
 
 **********************************************************************
 /u/c/s/cs537-1/ta/tests/2a/stress/gen -s 1 -n 10000
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> 0000000000\nwhoosh> SVMRvOCB9Z\nwhoosh> "
-Got:      "0000000000\nSVMRvOCB9Z\nwhoosh> whoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test stress FAILED (0 of 5)
+test stress PASSED (5 of 5)
  (stress testing the shell with large number of commands)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/stress/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/stress
- to compare your output with reference outputs. 
 
 starting line
 
@@ -211,21 +151,11 @@ Test line
 line with maximum allowed length
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nwhoosh> "
-Got:      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test line FAILED (0 of 5)
+test line PASSED (5 of 5)
  (line with maximum allowed length)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/line/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/line
- to compare your output with reference outputs. 
 
 starting badline
 
@@ -235,21 +165,11 @@ Test badline
 a line that is too long
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard output.
-Expected: "whoosh> whoosh> Linux\nwhoosh> "
-Got:      "00001111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990000000000111111111122222222\nLinux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> Linux\nwhoosh> whoosh> whoosh> whoosh> whoosh> whoosh> whoosh> "
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test badline FAILED (0 of 5)
+test badline PASSED (5 of 5)
  (a line that is too long)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/badline/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/badline
- to compare your output with reference outputs. 
 
 starting badarg
 
@@ -259,12 +179,11 @@ Test badarg
 extra argument to whoosh
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh /extra
+/tmp/tmprZ58Cl/p/./whoosh /extra
 
 
-test badarg FAILED (0 of 5)
+test badarg PASSED (5 of 5)
  (extra argument to whoosh)
- Timelimit (10.0s) exceeded
 
 starting whitespace
 
@@ -274,19 +193,11 @@ Test whitespace
 leading and trailing whitespace, full whitespaces or empty string
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh returned incorrect status code. Expected 0 got -11
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test whitespace FAILED (0 of 5)
+test whitespace PASSED (5 of 5)
  (leading and trailing whitespace, full whitespaces or empty string)
- ./whoosh returned incorrect status code. Expected 0 got -11
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/whitespace/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/whitespace
- to compare your output with reference outputs. 
 
 starting rdr
 
@@ -296,19 +207,11 @@ Test rdr
 simple redirection with no standard error
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test rdr FAILED (0 of 10)
+test rdr PASSED (10 of 10)
  (simple redirection with no standard error)
- standard output does not match redirected output
- standard error does not match redirected error
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/rdr/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/rdr
- to compare your output with reference outputs. 
 
 starting rdr2
 
@@ -318,18 +221,11 @@ Test rdr2
 simple redirection with standard error
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test rdr2 FAILED (0 of 10)
+test rdr2 PASSED (10 of 10)
  (simple redirection with standard error)
- standard error does not match redirected error
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/rdr2/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/rdr2
- to compare your output with reference outputs. 
 
 starting badrdr
 
@@ -339,21 +235,11 @@ Test badrdr
 bad redirection format
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
-Failure: ./whoosh gave incorrect standard error.
-Expected: "An error has occurred\nAn error has occurred\nAn error has occurred\n"
-Got:      "An error has occurred\nls: cannot access >: No such file or directory\nAn error has occurred\nls: cannot access >: No such file or directory\nls: cannot access 1.out: No such file or directory\nls: cannot access >: No such file or directory\nls: cannot access 2.out: No such file or directory\n"
+/tmp/tmprZ58Cl/p/./whoosh
 
 
-test badrdr FAILED (0 of 5)
+test badrdr PASSED (5 of 5)
  (bad redirection format)
- ./whoosh gave incorrect standard error.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/badrdr/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/badrdr
- to compare your output with reference outputs. 
 
 starting badrdr2
 
@@ -363,7 +249,7 @@ Test badrdr2
 bad redirection that redirects to invalid path
 
 **********************************************************************
-/tmp/tmp59bjZ8/p/./whoosh
+/tmp/tmprZ58Cl/p/./whoosh
 
 
 test badrdr2 PASSED (5 of 5)
@@ -381,137 +267,51 @@ test exit PASSED (5 of 5)
 test pwd PASSED (5 of 5)
  (run pwd)
 
-test cd FAILED (0 of 5)
+test cd PASSED (5 of 5)
  (cd with argument)
- ./whoosh gave incorrect standard output.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/cd/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/cd
- to compare your output with reference outputs. 
 
 test badcd PASSED (5 of 5)
  (cd to a bad directory)
 
-test exec FAILED (0 of 5)
+test exec PASSED (5 of 5)
  (path should be /bin)
- ./whoosh gave incorrect standard output.
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/exec/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/exec
- to compare your output with reference outputs. 
-
-test badexec FAILED (0 of 10)
+test badexec PASSED (10 of 10)
  (run programs that do not exist in /bin)
- ./whoosh gave incorrect standard output.
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/badexec/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/badexec
- to compare your output with reference outputs. 
-
-test path FAILED (0 of 5)
+test path PASSED (5 of 5)
  (run path and a program that exists in a given path)
- ./whoosh gave incorrect standard output.
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/path/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/path
- to compare your output with reference outputs. 
-
-test path2 FAILED (0 of 5)
+test path2 PASSED (5 of 5)
  (run path with a long pathname and many different paths)
- ./whoosh gave incorrect standard output.
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/path2/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/path2
- to compare your output with reference outputs. 
-
-test stress FAILED (0 of 5)
+test stress PASSED (5 of 5)
  (stress testing the shell with large number of commands)
- ./whoosh gave incorrect standard output.
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/stress/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/stress
- to compare your output with reference outputs. 
-
-test line FAILED (0 of 5)
+test line PASSED (5 of 5)
  (line with maximum allowed length)
- ./whoosh gave incorrect standard output.
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/line/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/line
- to compare your output with reference outputs. 
-
-test badline FAILED (0 of 5)
+test badline PASSED (5 of 5)
  (a line that is too long)
- ./whoosh gave incorrect standard output.
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/badline/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/badline
- to compare your output with reference outputs. 
-
-test badarg FAILED (0 of 5)
+test badarg PASSED (5 of 5)
  (extra argument to whoosh)
- Timelimit (10.0s) exceeded
 
-test whitespace FAILED (0 of 5)
+test whitespace PASSED (5 of 5)
  (leading and trailing whitespace, full whitespaces or empty string)
- ./whoosh returned incorrect status code. Expected 0 got -11
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/whitespace/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/whitespace
- to compare your output with reference outputs. 
-
-test rdr FAILED (0 of 10)
+test rdr PASSED (10 of 10)
  (simple redirection with no standard error)
- standard output does not match redirected output
- standard error does not match redirected error
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/rdr/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/rdr
- to compare your output with reference outputs. 
-
-test rdr2 FAILED (0 of 10)
+test rdr2 PASSED (10 of 10)
  (simple redirection with standard error)
- standard error does not match redirected error
 
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/rdr2/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/rdr2
- to compare your output with reference outputs. 
-
-test badrdr FAILED (0 of 5)
+test badrdr PASSED (5 of 5)
  (bad redirection format)
- ./whoosh gave incorrect standard error.
-
- Test it yourself by running
- whoosh </u/c/s/cs537-1/ta/tests/2a/badrdr/in
- and check out the test folder
- /u/c/s/cs537-1/ta/tests/2a/badrdr
- to compare your output with reference outputs. 
 
 test badrdr2 PASSED (5 of 5)
  (bad redirection that redirects to invalid path)
 
-Passed 5 of 18 tests.
-Overall 5 of 18
-Points 20 of 100
+Passed 18 of 18 tests.
+Overall 18 of 18
+Points 100 of 100
